@@ -35,6 +35,9 @@ public class Orbiter : MonoBehaviour
     [SerializeField]
     private CircleRenderer circleRenderer;
 
+    [SerializeField]
+    private LookAtTransform lookAtTransform;
+
     private SolarSystem solarSystem;
     private float actualDistanceFromPivot;
     private float actualDiameter;
@@ -47,6 +50,7 @@ public class Orbiter : MonoBehaviour
         InitDistanceFromPivot();
         InitSize();
         InitOrbitTime();
+        InitLookAtCamera();
         DrawOrbit();
     }
 
@@ -90,6 +94,12 @@ public class Orbiter : MonoBehaviour
         {
             InitOrbitTime();
         });
+    }
+
+    private void InitLookAtCamera()
+    {
+        lookAtTransform.TargetTransform
+            = Singleton.GetFirst<MainCamera>().transform;
     }
 
     private void DrawOrbit()

@@ -405,6 +405,9 @@ GameObject:
   - component: {fileID: 934377522}
   - component: {fileID: 934377521}
   - component: {fileID: 934377520}
+  - component: {fileID: 934377524}
+  - component: {fileID: 934377523}
+  - component: {fileID: 934377525}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -451,8 +454,8 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
+  near clip plane: 0.01
+  far clip plane: 100000
   field of view: 60
   orthographic: 0
   orthographic size: 10
@@ -480,12 +483,68 @@ Transform:
   m_GameObject: {fileID: 934377519}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -100}
+  m_LocalPosition: {x: 0, y: 0, z: -1000}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &934377523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 934377519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceab3753cc86348ba86aa28e7e75283d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &934377524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 934377519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f6351e437e9c4e21850e69259d180bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: 
+  entry: {fileID: 934377523}
+--- !u!114 &934377525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 934377519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 803545e8f62254a0ba16556aaaef1a7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialSpeed: 1000
+  increaseSpeed: 1.25
+  isEnabled: 1
+  allowMovement: 1
+  allowRotation: 0
+  allowRotationOnRightClick: 1
+  cursorVisibleByDefault: 1
+  allowMiddleClickPanning: 1
+  middleClickPanningSpeed: 12
+  forwardButton: 119
+  backwardButton: 115
+  rightButton: 100
+  leftButton: 97
+  cursorSensitivity: 0.025
+  cursorToggleAllowed: 0
+  cursorToggleButton: 27
+  minAngle: 89
+  maxAngle: 271
 --- !u!1001 &1093078050
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -613,10 +672,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sunTransform: {fileID: 724106727}
   sunScale: 0.01
-  distanceScaleFactor: 40000
-  orbitLineWidth: 100000
-  diameterScaleFactor: 40
+  distanceScaleFactor: 1
+  diameterScaleFactor: 0.001
   orbitTimeScaleFactor: 0.05
+  orbitLineWidth: 1
 --- !u!4 &1324651335
 Transform:
   m_ObjectHideFlags: 0

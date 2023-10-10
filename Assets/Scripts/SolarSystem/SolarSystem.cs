@@ -19,16 +19,6 @@ public class SolarSystem : MonoBehaviour
     }
 
     [SerializeField]
-    private float orbitLineWidth;
-    public float OrbitLineWidth
-    {
-        get
-        {
-            return orbitLineWidth;
-        }
-    }
-
-    [SerializeField]
     private float diameterScaleFactor;
     public float DiameterScaleFactor
     {
@@ -45,6 +35,16 @@ public class SolarSystem : MonoBehaviour
         get
         {
             return orbitTimeScaleFactor;
+        }
+    }
+
+    [SerializeField]
+    private float orbitLineWidth;
+    public float OrbitLineWidth
+    {
+        get
+        {
+            return orbitLineWidth;
         }
     }
 
