@@ -2,12 +2,7 @@ using UnityEngine;
 
 public class Orbiter : MonoBehaviour
 {
-    [SerializeField]
-    private Transform contentTransform;
-
-    [SerializeField]
-    private Transform pivotTransform;
-
+    [Header("Data")]
     /// <summary>
     /// The distance in from the pivot, measured in millions of kilometers.
     /// </summary>
@@ -26,15 +21,34 @@ public class Orbiter : MonoBehaviour
     [SerializeField]
     private float orbitTime;
 
+    [Header("Internal")]
+    /// <summary>
+    /// Represents the parent transform of the renderers of the Orbiter.
+    /// </summary>
+    [SerializeField]
+    private Transform contentTransform;
+
+    /// <summary>
+    /// The Orbiter will orbit around this transform.
+    /// </summary>
+    [SerializeField]
+    private Transform pivotTargetTransform;
+
     [SerializeField]
     private Rotatable rotatable;
 
+    /// <summary>
+    /// This is used to follow <see cref="pivotTargetTransform"/> 
+    /// </summary>
     [SerializeField]
     private Follower follower;
 
     [SerializeField]
     private CircleRenderer circleRenderer;
 
+    /// <summary>
+    /// This is used to always look at the camera.
+    /// </summary>
     [SerializeField]
     private LookAtTransform lookAtTransform;
 
@@ -49,9 +63,9 @@ public class Orbiter : MonoBehaviour
     private void Start()
     {
         solarSystem = Singleton.GetFirst<SolarSystem>();
-        if (pivotTransform != null)
+        if (pivotTargetTransform != null)
         {
-            pivotRenderer = pivotTransform.GetComponent<SpriteRenderer>();
+            pivotRenderer = pivotTargetTransform.GetComponent<SpriteRenderer>();
         }
         InitPivot();
         InitLookAtCamera();
@@ -81,7 +95,7 @@ public class Orbiter : MonoBehaviour
 
     private void InitPivot()
     {
-        follower.Target = pivotTransform;
+        follower.Target = pivotTargetTransform;
     }
 
     private void InitDistanceFromPivot()
