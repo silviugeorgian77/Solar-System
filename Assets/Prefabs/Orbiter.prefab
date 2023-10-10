@@ -247,7 +247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 436fa9c334e3440f2953ab80fc32f81b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vertexCount: 200
+  vertexCount: 1000
   lineWidth: 0.2
   radius: 0
 --- !u!1 &3413282663927626864

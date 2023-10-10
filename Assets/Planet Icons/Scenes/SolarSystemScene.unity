@@ -670,7 +670,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e8f8ead3063f4ea2a2b93ebcf614a5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceScaleFactor: 4
+  sunTransform: {fileID: 724106727}
+  sunScale: 0.2
+  distanceScaleFactor: 2
   diameterScaleFactor: 0.001
   orbitTimeScaleFactor: 0.05
   orbitLineWidth: 10

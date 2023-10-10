@@ -3,6 +3,12 @@ using UnityEngine;
 public class SolarSystem : MonoBehaviour
 {
     [SerializeField]
+    private Transform sunTransform;
+
+    [SerializeField]
+    private float sunScale;
+
+    [SerializeField]
     private float distanceScaleFactor;
     public float DistanceScaleFactor
     {
@@ -40,5 +46,19 @@ public class SolarSystem : MonoBehaviour
         {
             return orbitLineWidth;
         }
+    }
+
+    private void Awake()
+    {
+        InitSunScale();
+    }
+
+    private void InitSunScale()
+    {
+        var scale = sunTransform.localScale;
+        scale.x = sunScale;
+        scale.y = sunScale;
+        scale.z = sunScale;
+        sunTransform.localScale = scale;
     }
 }

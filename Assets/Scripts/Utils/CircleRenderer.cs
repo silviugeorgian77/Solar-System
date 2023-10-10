@@ -4,7 +4,7 @@ using UnityEngine;
 public class CircleRenderer : MonoBehaviour
 {
     [SerializeField]
-    private int vertexCount = 40; // 4 vertices == square
+    private int vertexCount = 1000; // 4 vertices == square
 
     [SerializeField]
     private float lineWidth = 0.2f;
@@ -24,7 +24,7 @@ public class CircleRenderer : MonoBehaviour
     }
 
     public void SetupCircle(
-        int vertexCount = 40,
+        int vertexCount = 1000,
         float lineWidth = 0.2f,
         float radius = 1)
     {
