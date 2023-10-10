@@ -56,7 +56,7 @@ public class Orbiter : MonoBehaviour
     private float actualDistanceFromPivot;
     private float actualDiameter;
     private float actualOrbitTime;
-    private SpriteRenderer pivotRenderer;
+    private SpriteRenderer pivotTargetRenderer;
     private Vector3 pivotSize;
     private Vector3 lastPivotSize;
 
@@ -66,18 +66,23 @@ public class Orbiter : MonoBehaviour
         solarSystem.OnSystemSettingsChanged += OnSystemSettingsChanged;
         if (pivotTargetTransform != null)
         {
-            pivotRenderer = pivotTargetTransform.GetComponent<SpriteRenderer>();
+            pivotTargetRenderer
+                = pivotTargetTransform.GetComponent<SpriteRenderer>();
         }
         InitPivot();
         InitLookAtCamera();
-        Init();
+        InitOrbitBehaviour();
     }
 
-    private void Init()
+    /// <summary>
+    /// Pulls the settings from the <see cref="SolarSystem"/> and initializes
+    /// the orbit routine.
+    /// </summary>
+    private void InitOrbitBehaviour()
     {
-        if (pivotRenderer != null)
+        if (pivotTargetRenderer != null)
         {
-            pivotSize = pivotRenderer.bounds.size;
+            pivotSize = pivotTargetRenderer.bounds.size;
         }
         lastPivotSize = pivotSize;
         InitDistanceFromPivot();
@@ -88,12 +93,30 @@ public class Orbiter : MonoBehaviour
 
     private void Update()
     {
-        if (pivotRenderer != null)
+        ManagePivotTargetSize();
+    }
+
+    /// <summary>
+    /// If the pivot size changes, then we must recompute the orbit routine.
+    /// 
+    /// Because the pivot can also be an <see cref="Orbiter"/>
+    /// (the Moon for the Earth), we have the scenario where pivot must first
+    /// finish its scaling via <see cref="InitSize"/>.
+    ///
+    /// Since <see cref="InitSize"/> is firstly called  in <see cref="Start"/>
+    /// for both the pivot target and the pivot, it's just safer to check
+    /// in the update loop for size changes of the pivot target.
+    ///
+    /// If there is a size change, then we need to reinitialize.
+    /// </summary>
+    private void ManagePivotTargetSize()
+    {
+        if (pivotTargetRenderer != null)
         {
-            pivotSize = pivotRenderer.bounds.size;
+            pivotSize = pivotTargetRenderer.bounds.size;
             if (!pivotSize.AreApproximatelyEqual(lastPivotSize))
             {
-                Init();
+                InitOrbitBehaviour();
             }
         }
     }
@@ -147,6 +170,9 @@ public class Orbiter : MonoBehaviour
             = Singleton.GetFirst<MainCamera>().transform;
     }
 
+    /// <summary>
+    /// Draws the circle outline of the orbit.
+    /// </summary>
     private void DrawOrbit()
     {
         circleRenderer.SetupCircle(
@@ -157,7 +183,7 @@ public class Orbiter : MonoBehaviour
 
     private void OnSystemSettingsChanged()
     {
-        Init();
+        InitOrbitBehaviour();
     }
 
     private void OnDestroy()
