@@ -63,6 +63,7 @@ public class Orbiter : MonoBehaviour
     private void Start()
     {
         solarSystem = Singleton.GetFirst<SolarSystem>();
+        solarSystem.OnSystemSettingsChanged += OnSystemSettingsChanged;
         if (pivotTargetTransform != null)
         {
             pivotRenderer = pivotTargetTransform.GetComponent<SpriteRenderer>();
@@ -74,6 +75,11 @@ public class Orbiter : MonoBehaviour
 
     private void Init()
     {
+        if (pivotRenderer != null)
+        {
+            pivotSize = pivotRenderer.bounds.size;
+        }
+        lastPivotSize = pivotSize;
         InitDistanceFromPivot();
         InitSize();
         InitOrbitTime();
@@ -87,7 +93,6 @@ public class Orbiter : MonoBehaviour
             pivotSize = pivotRenderer.bounds.size;
             if (!pivotSize.AreApproximatelyEqual(lastPivotSize))
             {
-                lastPivotSize = pivotSize;
                 Init();
             }
         }
@@ -148,5 +153,15 @@ public class Orbiter : MonoBehaviour
             lineWidth: solarSystem.OrbitLineWidth,
             radius: actualDistanceFromPivot
         );
+    }
+
+    private void OnSystemSettingsChanged()
+    {
+        Init();
+    }
+
+    private void OnDestroy()
+    {
+        solarSystem.OnSystemSettingsChanged -= OnSystemSettingsChanged;
     }
 }

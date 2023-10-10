@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class SolarSystem : MonoBehaviour
@@ -13,6 +15,19 @@ public class SolarSystem : MonoBehaviour
     /// </summary>
     [SerializeField]
     private float sunScale;
+    public float SunScale
+    {
+        get
+        {
+            return sunScale;
+        }
+        set
+        {
+            sunScale = value;
+            InitSunScale();
+            OnSystemSettingsChanged?.Invoke();
+        }
+    }
 
     /// <summary>
     /// The distance between the planets and the sun
@@ -26,6 +41,11 @@ public class SolarSystem : MonoBehaviour
         get
         {
             return distanceScaleFactor;
+        }
+        set
+        {
+            distanceScaleFactor = value;
+            OnSystemSettingsChanged?.Invoke();
         }
     }
 
@@ -41,6 +61,11 @@ public class SolarSystem : MonoBehaviour
         {
             return diameterScaleFactor;
         }
+        set
+        {
+            diameterScaleFactor = value;
+            OnSystemSettingsChanged?.Invoke();
+        }
     }
 
     /// <summary>
@@ -55,6 +80,11 @@ public class SolarSystem : MonoBehaviour
         {
             return orbitTimeScaleFactor;
         }
+        set
+        {
+            orbitTimeScaleFactor = value;
+            OnSystemSettingsChanged?.Invoke();
+        }
     }
 
     [SerializeField]
@@ -65,7 +95,13 @@ public class SolarSystem : MonoBehaviour
         {
             return orbitLineWidth;
         }
+        set
+        {
+            orbitLineWidth = value;
+        }
     }
+
+    public Action OnSystemSettingsChanged { get; set; }
 
     private void Awake()
     {
