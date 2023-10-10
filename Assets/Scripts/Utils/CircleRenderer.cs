@@ -1,5 +1,4 @@
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 
 [RequireComponent(typeof(LineRenderer))]
 public class CircleRenderer : MonoBehaviour
@@ -41,10 +40,9 @@ public class CircleRenderer : MonoBehaviour
         float theta = 0f;
 
         lineRenderer.positionCount = vertexCount;
-        Vector3 pos = Vector3.zero;
         for (int i = 0; i < lineRenderer.positionCount - 1; i++)
         {
-            pos = new Vector3(
+            var pos = new Vector3(
                 radius * Mathf.Cos(theta),
                 radius * Mathf.Sin(theta),
                 transform.position.z
@@ -57,26 +55,4 @@ public class CircleRenderer : MonoBehaviour
             lineRenderer.GetPosition(0)
         );
     }
-
-//#if UNITY_EDITOR
-//    private void OnDrawGizmos()
-//    {
-//        float deltaTheta = (2f * Mathf.PI) / vertexCount;
-//        float theta = 0f;
-
-//        Vector3 oldPos = Vector3.zero;
-//        for (int i = 0; i < vertexCount + 1; i++)
-//        {
-//            var pos = new Vector3(
-//                radius * Mathf.Cos(theta),
-//                radius * Mathf.Sin(theta),
-//                transform.position.z
-//            );
-//            Gizmos.DrawLine(oldPos, transform.position + pos);
-//            oldPos = transform.position + pos;
-
-//            theta += deltaTheta;
-//        }
-//    }
-//#endif
 }

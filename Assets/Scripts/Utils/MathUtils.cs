@@ -588,4 +588,9 @@ public static class MathUtils
         }
 		return sum;
     }
+
+    public static bool AreApproximatelyEqual(this Vector3 a, Vector3 b)
+    {
+        return Vector3.SqrMagnitude(a - b) < 0.0001;
+    }
 }

@@ -181,7 +181,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5446817372740281927, guid: 06911cd007237438f8df1b7f55b99c4e, type: 3}
       propertyPath: diameter
-      value: 6052
+      value: 12104
       objectReference: {fileID: 0}
     - target: {fileID: 5446817372740281927, guid: 06911cd007237438f8df1b7f55b99c4e, type: 3}
       propertyPath: orbitTime
@@ -271,7 +271,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5446817372740281927, guid: 06911cd007237438f8df1b7f55b99c4e, type: 3}
       propertyPath: diameter
-      value: 25362
+      value: 51118
       objectReference: {fileID: 0}
     - target: {fileID: 5446817372740281927, guid: 06911cd007237438f8df1b7f55b99c4e, type: 3}
       propertyPath: orbitTime
@@ -361,7 +361,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5446817372740281927, guid: 06911cd007237438f8df1b7f55b99c4e, type: 3}
       propertyPath: diameter
-      value: 696000
+      value: 1392700
       objectReference: {fileID: 0}
     - target: {fileID: 5446817372740281927, guid: 06911cd007237438f8df1b7f55b99c4e, type: 3}
       propertyPath: pivotTransform
@@ -483,7 +483,7 @@ Transform:
   m_GameObject: {fileID: 934377519}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1000}
+  m_LocalPosition: {x: 0, y: 0, z: -10000}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -527,7 +527,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 803545e8f62254a0ba16556aaaef1a7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialSpeed: 1000
+  initialSpeed: 10000
   increaseSpeed: 1.25
   isEnabled: 1
   allowMovement: 1
@@ -603,7 +603,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5446817372740281927, guid: 06911cd007237438f8df1b7f55b99c4e, type: 3}
       propertyPath: diameter
-      value: 58232
+      value: 120536
       objectReference: {fileID: 0}
     - target: {fileID: 5446817372740281927, guid: 06911cd007237438f8df1b7f55b99c4e, type: 3}
       propertyPath: orbitTime
@@ -670,12 +670,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e8f8ead3063f4ea2a2b93ebcf614a5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sunTransform: {fileID: 724106727}
-  sunScale: 0.01
-  distanceScaleFactor: 1
+  distanceScaleFactor: 4
   diameterScaleFactor: 0.001
   orbitTimeScaleFactor: 0.05
-  orbitLineWidth: 1
+  orbitLineWidth: 10
 --- !u!4 &1324651335
 Transform:
   m_ObjectHideFlags: 0
@@ -773,7 +771,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5446817372740281927, guid: 06911cd007237438f8df1b7f55b99c4e, type: 3}
       propertyPath: diameter
-      value: 69911
+      value: 142984
       objectReference: {fileID: 0}
     - target: {fileID: 5446817372740281927, guid: 06911cd007237438f8df1b7f55b99c4e, type: 3}
       propertyPath: orbitTime
@@ -868,7 +866,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5446817372740281927, guid: 06911cd007237438f8df1b7f55b99c4e, type: 3}
       propertyPath: diameter
-      value: 24622
+      value: 49528
       objectReference: {fileID: 0}
     - target: {fileID: 5446817372740281927, guid: 06911cd007237438f8df1b7f55b99c4e, type: 3}
       propertyPath: orbitTime
@@ -958,7 +956,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5446817372740281927, guid: 06911cd007237438f8df1b7f55b99c4e, type: 3}
       propertyPath: diameter
-      value: 6371
+      value: 12756
       objectReference: {fileID: 0}
     - target: {fileID: 5446817372740281927, guid: 06911cd007237438f8df1b7f55b99c4e, type: 3}
       propertyPath: orbitTime
@@ -1134,7 +1132,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5446817372740281927, guid: 06911cd007237438f8df1b7f55b99c4e, type: 3}
       propertyPath: diameter
-      value: 3390
+      value: 6792
       objectReference: {fileID: 0}
     - target: {fileID: 5446817372740281927, guid: 06911cd007237438f8df1b7f55b99c4e, type: 3}
       propertyPath: orbitTime
@@ -1224,7 +1222,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5446817372740281927, guid: 06911cd007237438f8df1b7f55b99c4e, type: 3}
       propertyPath: diameter
-      value: 2440
+      value: 4879
       objectReference: {fileID: 0}
     - target: {fileID: 5446817372740281927, guid: 06911cd007237438f8df1b7f55b99c4e, type: 3}
       propertyPath: orbitTime

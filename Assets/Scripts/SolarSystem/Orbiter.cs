@@ -42,16 +42,41 @@ public class Orbiter : MonoBehaviour
     private float actualDistanceFromPivot;
     private float actualDiameter;
     private float actualOrbitTime;
+    private SpriteRenderer pivotRenderer;
+    private Vector3 pivotSize;
+    private Vector3 lastPivotSize;
 
     private void Start()
     {
         solarSystem = Singleton.GetFirst<SolarSystem>();
+        if (pivotTransform != null)
+        {
+            pivotRenderer = pivotTransform.GetComponent<SpriteRenderer>();
+        }
         InitPivot();
+        InitLookAtCamera();
+        Init();
+    }
+
+    private void Init()
+    {
         InitDistanceFromPivot();
         InitSize();
         InitOrbitTime();
-        InitLookAtCamera();
         DrawOrbit();
+    }
+
+    private void Update()
+    {
+        if (pivotRenderer != null)
+        {
+            pivotSize = pivotRenderer.bounds.size;
+            if (!pivotSize.AreApproximatelyEqual(lastPivotSize))
+            {
+                lastPivotSize = pivotSize;
+                Init();
+            }
+        }
     }
 
     private void InitPivot()
@@ -62,7 +87,8 @@ public class Orbiter : MonoBehaviour
     private void InitDistanceFromPivot()
     {
         actualDistanceFromPivot
-            = distanceFromPivot * solarSystem.DistanceScaleFactor;
+            = distanceFromPivot * solarSystem.DistanceScaleFactor
+            + pivotSize.x / 2f;
 
         var pos = contentTransform.localPosition;
         pos.x = actualDistanceFromPivot;
