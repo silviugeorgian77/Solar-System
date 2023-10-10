@@ -18,6 +18,9 @@ public class SettingsManager : MonoBehaviour
     [SerializeField]
     private Slider orbitTimeScaleSlider;
 
+    [SerializeField]
+    private GameObject readMeObject;
+
     private void Awake()
     {
         sunScaleSlider.value = solarSystem.SunScale;
@@ -49,6 +52,11 @@ public class SettingsManager : MonoBehaviour
     private void OnOrbitTimeScaleChanged(float value)
     {
         solarSystem.OrbitTimeScaleFactor = value;
+    }
+
+    public void OnReadMeClicked()
+    {
+        readMeObject.SetActive(!readMeObject.activeSelf);
     }
 
     private void OnDestroy()
