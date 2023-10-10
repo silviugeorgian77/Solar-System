@@ -32,6 +32,9 @@ public class Orbiter : MonoBehaviour
     [SerializeField]
     private Follower follower;
 
+    [SerializeField]
+    private CircleRenderer circleRenderer;
+
     private SolarSystem solarSystem;
     private float actualDistanceFromPivot;
     private float actualDiameter;
@@ -44,6 +47,7 @@ public class Orbiter : MonoBehaviour
         InitDistanceFromPivot();
         InitSize();
         InitOrbitTime();
+        DrawOrbit();
     }
 
     private void InitPivot()
@@ -86,5 +90,13 @@ public class Orbiter : MonoBehaviour
         {
             InitOrbitTime();
         });
+    }
+
+    private void DrawOrbit()
+    {
+        circleRenderer.SetupCircle(
+            lineWidth: solarSystem.OrbitLineWidth,
+            radius: actualDistanceFromPivot
+        );
     }
 }

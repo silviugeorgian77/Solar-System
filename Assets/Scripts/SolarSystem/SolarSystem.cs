@@ -19,12 +19,12 @@ public class SolarSystem : MonoBehaviour
     }
 
     [SerializeField]
-    private float moonExtraDistanceFactor;
-    public float MoonExtraDistanceFactor
+    private float orbitLineWidth;
+    public float OrbitLineWidth
     {
         get
         {
-            return moonExtraDistanceFactor;
+            return orbitLineWidth;
         }
     }
 
